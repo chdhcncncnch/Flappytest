@@ -1,0 +1,61 @@
+<div id="changelog-modal" class="modal-overlay hidden">
+  <div class="changelog-modal">
+    <h2>Changelog</h2>
+    <div class="changelog-entries">
+      <div class="changelog-entry">
+        <h3>Version 1.4</h3>
+        <ul>
+          <li>Added customizable pipe colors (like the game to unlock!)</li>
+          <li>Added blue, purple, yellow, and red pipe options</li>
+          <li>Added color selection persistence</li>
+          <li>Enhanced Challenge Mode with random pipe gaps and speeds</li>
+        </ul>
+      </div>
+      <div class="changelog-entry">
+        <h3>Version 1.3</h3>
+        <ul>
+          <li>Added Challenge Mode - try to reach randomly generated score targets!</li>
+          <li>Challenge Mode uses Classic Mode difficulty settings</li>
+          <li>Added target score display during gameplay</li>
+          <li>Added victory message when completing challenges</li>
+        </ul>
+      </div>
+      <div class="changelog-entry">
+        <h3>Version 1.2</h3>
+        <ul>
+          <li>Added unlockable bird skins in settings (like the game to unlock!)</li>
+          <li>Added new "Brother Bird" skin inspired by Auto Bird</li>
+          <li>Added automatic skin lock status updates</li>
+          <li>Added controller support</li>
+          <li>Fixed skin selection and locking mechanism</li>
+          <li>Updated bird favicon</li>
+          <li>Improved project like detection</li>
+          <li>Added share link functionality</li>
+        </ul>
+      </div>
+      <div class="changelog-entry">
+        <h3>Version 1.1</h3>
+        <ul>
+          <li>Added Classic Mode difficulty option</li>
+          <li>Added How to Play guide</li>
+          <li>Added Credits section</li>
+          <li>Added Changelog</li>
+          <li>Improved medal positioning</li>
+          <li>Various bug fixes and improvements</li>
+        </ul>
+      </div>
+      <div class="changelog-entry">
+        <h3>Version 1.0</h3>
+        <ul>
+          <li>Initial release</li>
+          <li>Basic game mechanics</li>
+          <li>Score system</li>
+          <li>Medal rewards</li>
+          <li>Rating system</li>
+          <li>Share functionality</li>
+        </ul>
+      </div>
+    </div>
+    <button class="close-btn" id="changelog-close-btn">Close</button>
+  </div>
+</div>

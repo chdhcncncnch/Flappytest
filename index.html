@@ -1,0 +1,189 @@
+<html>
+<head>
+  <title>Flappy Bird</title>
+  <link href="styles.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="bird.png">
+</head>
+<body>
+  <div id="game-container">
+    <div id="loading-screen">
+      <div class="loader"></div>
+      <div class="loading-text">Loading...</div>
+      <div class="progress-bar">
+        <div class="progress" id="loading-progress"></div>
+      </div>
+    </div>
+    <canvas id="game-canvas"></canvas>
+    
+    <div id="title-screen">
+      <img src="logo.png" class="logo" alt="Flappy Bird Logo">
+      <div class="title-buttons">
+        <button class="settings-btn" id="settings-btn">Settings</button>
+        <img src="Rate_button.png" class="rate-btn" id="rate-btn" alt="Rate Button">
+        <img src="play_replay.png" class="play-btn" id="start-btn" alt="Play Button">
+      </div>
+    </div>
+
+    <div id="settings-menu" class="settings-menu hidden">
+      <h2 class="settings-title">Settings</h2>
+      <button class="how-to-play-btn" id="how-to-play-btn">How to Play</button>
+      <button class="credits-btn" id="credits-btn">Credits</button>
+      <button class="changelog-btn" id="changelog-btn">Changelog</button>
+      <button class="back-btn" id="settings-back-btn">Back</button>
+    </div>
+
+    <div id="how-to-play-modal" class="modal-overlay hidden">
+      <div class="how-to-play-modal">
+        <h2>How to Play</h2>
+        <div class="instructions">
+          <div class="instruction">
+            <div class="control-key">SPACE / CLICK</div>
+            <div class="control-desc">Tap to make the bird fly</div>
+          </div>
+          <div class="gameplay-tips">
+            <p>• Fly through the gaps between pipes</p>
+            <p>• Don't hit the pipes or the ground</p>
+            <p>• Score points by passing through pipes</p>
+            <p>• Try to beat your best score!</p>
+            <p>• Challenge Mode: Try to reach the target score!</p>
+            <p>• In Challenge Mode, a random score goal appears</p>
+            <p>• In Challenge Mode, pipe gaps and speeds vary!</p>
+            <p>• Enable Challenge Mode in settings</p>
+          </div>
+        </div>
+        <button class="close-btn" id="how-to-play-close-btn">Close</button>
+      </div>
+    </div>
+
+    <div id="credits-modal" class="modal-overlay hidden">
+      <div class="credits-modal">
+        <h2>Credits</h2>
+        <p>Original Game & Assets: Flappy Bird by Dong Nguyen</p>
+        <p>Development: Modern Web Recreation</p>
+        <p>Graphics: Original Flappy Bird Sprites</p>
+        <p>Additional Bird Skin: Auto Bird</p>
+        <p>Sound Effects: Original Flappy Bird SFX</p>
+        <p>Special Thanks to the Gaming Community</p>
+        <p>Bug Fixing: Tenslant</p>
+        <button class="close-btn" id="credits-close-btn">Close</button>
+      </div>
+    </div>
+
+    <div id="changelog-modal" class="modal-overlay hidden">
+      <div class="changelog-modal">
+        <h2>Changelog</h2>
+        <div class="changelog-entries">
+          <div class="changelog-entry">
+            <h3>Version 1.4</h3>
+            <ul>
+              <li>Added customizable pipe colors (like the game to unlock!)</li>
+              <li>Added blue, purple, yellow, and red pipe options</li>
+              <li>Added color selection persistence</li>
+            </ul>
+          </div>
+          <div class="changelog-entry">
+            <h3>Version 1.3</h3>
+            <ul>
+              <li>Added Challenge Mode - try to reach randomly generated score targets!</li>
+              <li>Challenge Mode uses Classic Mode difficulty settings</li>
+              <li>Added target score display during gameplay</li>
+              <li>Added victory message when completing challenges</li>
+            </ul>
+          </div>
+          <div class="changelog-entry">
+            <h3>Version 1.2</h3>
+            <ul>
+              <li>Added unlockable bird skins in settings (like the game to unlock!)</li>
+              <li>Added new "Brother Bird" skin inspired by Auto Bird</li>
+              <li>Added automatic skin lock status updates</li>
+              <li>Added controller support</li>
+              <li>Fixed skin selection and locking mechanism</li>
+              <li>Updated bird favicon</li>
+              <li>Improved project like detection</li>
+              <li>Added share link functionality</li>
+            </ul>
+          </div>
+          <div class="changelog-entry">
+            <h3>Version 1.1</h3>
+            <ul>
+              <li>Added Classic Mode difficulty option</li>
+              <li>Added How to Play guide</li>
+              <li>Added Credits section</li>
+              <li>Added Changelog</li>
+              <li>Improved medal positioning</li>
+              <li>Various bug fixes and improvements</li>
+            </ul>
+          </div>
+          <div class="changelog-entry">
+            <h3>Version 1.0</h3>
+            <ul>
+              <li>Initial release</li>
+              <li>Basic game mechanics</li>
+              <li>Score system</li>
+              <li>Medal rewards</li>
+              <li>Rating system</li>
+              <li>Share functionality</li>
+            </ul>
+          </div>
+        </div>
+        <button class="close-btn" id="changelog-close-btn">Close</button>
+      </div>
+    </div>
+
+    <div id="get-ready" class="hidden">
+      <div class="get-ready-text">
+        <img src="get_ready__get_.png" alt="Get" class="get-text">
+        <img src="get_ready__ready_.png" alt="Ready" class="ready-text">
+      </div>
+      <img src="get_ready_tap_to_start.png" class="tap-button" alt="Tap to Start">
+    </div>
+
+    <div id="game-over" class="hidden">
+      <div class="game-over-text">
+        <img src="Game_Over__Game_.png" alt="Game" class="game-text">
+        <img src="Game_Over__Over_.png" alt="Over" class="over-text">
+      </div>
+      <div class="score-card">
+        <img src="score_info.png" alt="Score Card">
+        <div class="medal"></div>
+        <div class="score">0</div>
+        <div class="best">0</div>
+      </div>
+      <div class="game-over-buttons">
+        <img src="play_replay.png" class="play-btn" id="replay-btn" alt="Replay Button">
+        <img src="share_button.png" class="share-btn" id="share-btn" alt="Share Button">
+        <img src="back_to_main_menu.png" class="menu-btn" id="menu-btn" alt="Menu Button">
+      </div>
+    </div>
+
+    <div id="rating-modal" class="modal-overlay hidden">
+      <div class="rating-modal">
+        <h2>Rate Flappy Bird</h2>
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24" data-rating="1">
+            <path class="star-svg" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <svg class="star" viewBox="0 0 24 24" data-rating="2">
+            <path class="star-svg" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <svg class="star" viewBox="0 0 24 24" data-rating="3">
+            <path class="star-svg" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <svg class="star" viewBox="0 0 24 24" data-rating="4">
+            <path class="star-svg" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <svg class="star" viewBox="0 0 24 24" data-rating="5">
+            <path class="star-svg" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <div class="modal-buttons">
+          <button class="modal-btn cancel-btn" id="cancel-rating">Cancel</button>
+          <button class="modal-btn submit-btn" id="submit-rating">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js" type="module"></script>
+</body>
+</html>
